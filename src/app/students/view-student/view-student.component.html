@@ -1,0 +1,118 @@
+<div class="page-header">
+  <div class="container">
+    <h1>Öğrencileri Görüntüle</h1>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row p1">
+    <div class="col-xs-12 row end-xs">
+      <a routerLink="/students" color="primary" mat-raised-button>
+        <mat-icon>chevron_left</mat-icon>
+        Geri Dön
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6">
+      <form #studentDetailsForm="ngForm">
+        <div class="row">
+          <div class="col-xs-6">
+            <mat-label>Ad </mat-label>
+            <mat-form-field class="example-full-width" appearance="outline">
+              <input
+                matInput
+                [(ngModel)]="student.firstName"
+                name="firstName"
+              />
+            </mat-form-field>
+          </div>
+          <div class="col-xs-6">
+            <mat-label>Soyad </mat-label>
+            <mat-form-field class="example-full-width" appearance="outline">
+              <input matInput [(ngModel)]="student.lastName" name="lastName" />
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-6">
+            <mat-label>Email </mat-label>
+            <mat-form-field class="example-full-width" appearance="outline">
+              <input matInput [(ngModel)]="student.email" name="email" />
+            </mat-form-field>
+          </div>
+          <div class="col-xs-6">
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Telefon </mat-label>
+              <input matInput [(ngModel)]="student.mobile" name="mobile" />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <mat-label>Doğum Tarihi</mat-label>
+            <mat-form-field appearance="outline">
+              <input
+                matInput
+                [matDatepicker]="picker"
+                [(ngModel)]="student.dateOfBirth"
+                name="dateOfBirth"
+              />
+
+              <mat-datepicker-toggle
+                matIconSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <div class="row">
+              <div class="col-xs-12">
+                <mat-label>Cinsiyet </mat-label>
+                <mat-form-field class="example-full-width" appearance="outline">
+               <input matInput [(ngModel)]="student.gender.description" name="gender">
+                
+              </mat-form-field>
+              </div>
+              <div class="col-xs-12">
+                <mat-label>Cinsiyet 2 </mat-label>
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <mat-select>
+                    <mat-option *ngFor="let food of genderList" [value]="food.id">
+                      {{food.description}}
+                    </mat-option>
+                  </mat-select>
+              </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <mat-label>Adress </mat-label>
+            <mat-form-field class="example-full-width" appearance="outline">
+              <textarea
+                matInput
+                [(ngModel)]="student.address.physicalAddress"
+                name="physicalAddress"
+              ></textarea>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <mat-label>Posta Kodu </mat-label>
+            <mat-form-field class="example-full-width" appearance="outline">
+              <textarea
+                matInput
+                [(ngModel)]="student.address.postalAddress"
+                name="postalAddress"
+              ></textarea>
+            </mat-form-field>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-xs-6">Profil Gelecek</div>
+  </div>
+</div>
